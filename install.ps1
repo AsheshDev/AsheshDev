@@ -14,14 +14,14 @@ $XAML = @"
     <Window.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontFamily" Value="Dutom Che"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
         </Style>
         <Style TargetType="CheckBox">
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontFamily" Value="Dutom Che"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
         </Style>
         <Style TargetType="Button">
-            <Setter Property="FontFamily" Value="Dutom Che"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
         </Style>
     </Window.Resources>
     <Grid Margin="10">
