@@ -4,6 +4,21 @@ if (![System.Security.Principal.WindowsIdentity]::GetCurrent().Groups -match 'S-
     exit
 }
 
+function Show-Menu {
+    param (
+        [string]$title = 'Menu'
+    )
+    cls
+    Write-Host "==================== $title ===================="
+    Write-Host "1: Developer Tools (Unity Hub, Visual Studio, Git, GitHub Desktop, Plastic SCM Cloud)"
+    Write-Host "2: General Software (Python, Visual Studio Code, VSCode Insiders, PyCharm, Ruby, Notepad++)"
+    Write-Host "3: Communications (Slack, Discord, Guilded, Telegram)"
+    Write-Host "4: Browsers (Google Chrome, Mozilla Firefox, Firefox ESR)"
+    Write-Host "5: Utilities (Windows Terminal, 7-Zip, JDownloader2, Tixati, Awesun Aweray)"
+    Write-Host "6: Office and Security (Office 365 Insider, Kaspersky Premium, fxSound)"
+    Write-Host "0: Exit"
+}
+
 function Install-DeveloperTools {
     Write-Output "Downloading and installing Unity Hub..."
     Invoke-WebRequest -Uri $unityHubUrl -OutFile "$env:TEMP\UnityHubSetup.exe"
