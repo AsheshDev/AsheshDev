@@ -8,7 +8,7 @@
         body {
             background-color: #000;
             color: #fff;
-            font-family: 'Dutom Che', sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -30,14 +30,6 @@
             align-items: center;
             margin: 20px 0;
         }
-        .option {
-            display: flex;
-            align-items: center;
-            margin: 10px 0;
-        }
-        .option input[type="checkbox"] {
-            margin-right: 10px;
-        }
         button {
             background-color: #fff;
             color: #000;
@@ -49,16 +41,9 @@
         button:hover {
             background-color: #ccc;
         }
-        .hidden {
-            display: none;
-        }
     </style>
 </head>
 <body>
-    <audio id="bgm" class="hidden">
-        <source src="bgm.mp3" type="audio/mpeg">
-    </audio>
-
     <h1>Ashesh Development</h1>
 
     <div class="instruction">
@@ -66,33 +51,8 @@
     </div>
 
     <div class="container">
-        <div class="option">
-            <input type="checkbox" id="developerTools">
-            <label for="developerTools">Developer Tools (Unity Hub, Visual Studio, Git, GitHub Desktop, Plastic SCM Cloud)</label>
-        </div>
-        <div class="option">
-            <input type="checkbox" id="generalSoftware">
-            <label for="generalSoftware">General Software (Python, Visual Studio Code, VSCode Insiders, PyCharm, Ruby, Notepad++)</label>
-        </div>
-        <div class="option">
-            <input type="checkbox" id="communications">
-            <label for="communications">Communications (Slack, Discord, Guilded, Telegram)</label>
-        </div>
-        <div class="option">
-            <input type="checkbox" id="browsers">
-            <label for="browsers">Browsers (Google Chrome, Mozilla Firefox, Firefox ESR)</label>
-        </div>
-        <div class="option">
-            <input type="checkbox" id="utilities">
-            <label for="utilities">Utilities (Windows Terminal, 7-Zip, JDownloader2, Tixati, Awesun Aweray)</label>
-        </div>
-        <div class="option">
-            <input type="checkbox" id="officeAndSecurity">
-            <label for="officeAndSecurity">Office and Security (Office 365 Insider, Kaspersky Premium, fxSound)</label>
-        </div>
+        <button id="copyButton">Copy PowerShell Command to Clipboard</button>
     </div>
-
-    <button id="copyButton">Copy PowerShell Command to Clipboard</button>
 
     <textarea id="powershellCommand" class="hidden">
 iwr -useb https://raw.githubusercontent.com/AsheshDev/AsheshDev/main/install.ps1 | iex
@@ -100,18 +60,7 @@ iwr -useb https://raw.githubusercontent.com/AsheshDev/AsheshDev/main/install.ps1
 
     <script>
         document.getElementById("copyButton").addEventListener("click", function() {
-            var options = [];
-            if (document.getElementById("developerTools").checked) options.push("Install-DeveloperTools");
-            if (document.getElementById("generalSoftware").checked) options.push("Install-GeneralSoftware");
-            if (document.getElementById("communications").checked) options.push("Install-Communications");
-            if (document.getElementById("browsers").checked) options.push("Install-Browsers");
-            if (document.getElementById("utilities").checked) options.push("Install-Utilities");
-            if (document.getElementById("officeAndSecurity").checked) options.push("Install-OfficeAndSecurity");
-
             var script = document.getElementById("powershellCommand").value.trim();
-            if (options.length > 0) {
-                script += "\n" + options.join("\n");
-            }
             var textArea = document.createElement("textarea");
             textArea.value = script;
             document.body.appendChild(textArea);
@@ -120,13 +69,6 @@ iwr -useb https://raw.githubusercontent.com/AsheshDev/AsheshDev/main/install.ps1
             document.body.removeChild(textArea);
             alert("PowerShell command copied to clipboard!");
         });
-
-        window.onload = function() {
-            var bgm = document.getElementById("bgm");
-            if (bgm) {
-                bgm.play().catch(error => console.log("BGM not found or failed to play."));
-            
-        };
     </script>
 </body>
 </html>
